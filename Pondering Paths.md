@@ -32,4 +32,6 @@ challenge directory. Thus, the path to the run challenge program is /challenge/r
 This challenge again requires you to execute it by invoking its absolute path. You'll want to execute the run file  
 that is in the challenge directory that is, in turn, in the / directory. If you invoke the challenge correctly, it will give  
 you the flag. Good luck!  
+### Solve
+**Flag:** ` `
 
