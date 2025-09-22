@@ -216,6 +216,28 @@ each other:
 - ./challenge
 - ./././challenge
 - challenge/.
+Of course, if your current working directory is /, the above relative paths are equivalent to the above absolute  
+ paths.  
+
+This challenge will get you using . in your relative paths. Get ready!  
+### Solve
+**Flag:** `pwn.college{8vgd9FZ5gzoNPfa_PewqByYObHn.QXwUTN0wCN1kjNzEzW}`  
+I went wrong here a couple of times thinking I had to implement .. somehow but once i figured out that the only challenge was to show the usage of ., the challenge became the same as the previous one.
+
+```
+
+hacker@paths~explicit-relative-paths-from-:~$ cd /  
+hacker@paths~explicit-relative-paths-from-:/$ ./challenge/run  
+Correct!!!  
+./challenge/run is a relative path, invoked from the right directory!  
+Here is your flag:  
+pwn.college{8vgd9FZ5gzoNPfa_PewqByYObHn.QXwUTN0wCN1kjNzEzW}  
+```
+### New Learnings  
+I learnt the usage of the . in a relative path  
+
+### Resources  
+  
 
 
 
