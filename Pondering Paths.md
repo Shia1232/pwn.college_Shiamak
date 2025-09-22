@@ -85,7 +85,7 @@ pwn.college{oI44ihFnd90_dkLPb-Esdx4qz1s.QX2QTN0wCN1kjNzEzW}
 I learnt the difference between an executable and an directory(also an executable directory) and  
 I learnt the usage of the 'cd' command and how to traverse through directories relatively.  
 ### Resources  
-The File system video present in the module, Askubuntu and Chatgpt.  
+The File system video present in the module, [Askubuntu](https://askubuntu.com/questions/862289/difference-between-executable-directory-vs-executable-files) and Chatgpt.  
 ## Position elsewhere  
 The Linux filesystem has tons of directories with tons of files. You can navigate around directories by using the   
 cd (change directory) command and passing a path to it as an argument, as so:  
@@ -177,7 +177,31 @@ Imagine we want to access some file located at /tmp/a/b/my_file.
   * If my cwd is /tmp, then a relative path to the file is a/b/my_file.  
   + If my cwd is /tmp/a/b/c, then a relative path to the file is ../my_file. The .. refers to the parent directory.  
 
-Let's try it here! You'll need to run /challenge/run using a relative path while having a current working directory of /. For this level, I'll give you a hint. Your relative path starts with the letter c 😊  
+Let's try it here! You'll need to run /challenge/run using a relative path while having a current working directory of /. For this level, I'll give you a hint. Your relative path starts with the letter c 😊   
+### Solve  
+**Flag:** `pwn.college{oGKnYygrHJpbrSrowxUsTXenEQF.QX5QTN0wCN1kjNzEzW}`  
+While solving this i faced the dilemma of not understanding completly how to execute a executable using a relative path as I had used an absolute path before even when opening subdirectories of smaller directories.  
+The hint of using the relative path starting with a c gave me the idea to run 'challenge/run' instead of '/challenge/run' which helped me solve it. I used the ls function whos functionality I learnt from Askubuntu to ensure the relative path wouldnt be any other directory.
+```
+hacker@paths~implicit-relative-paths-from-:~$ cd /  
+hacker@paths~implicit-relative-paths-from-:/$ ls  
+bin   challenge  etc   home  lib32  libx32  mnt  opt   root  sbin  sys  usr  
+boot  dev        flag  lib   lib64  media   nix  proc  run   srv   tmp  var  
+hacker@paths~implicit-relative-paths-from-:/$ challenge/run  
+Correct!!!  
+challenge/run is a relative path, invoked from the right directory!  
+Here is your flag:  
+pwn.college{oGKnYygrHJpbrSrowxUsTXenEQF.QX5QTN0wCN1kjNzEzW}
+```
+### New Learnings
+Learnt how to execute a executable from a cwd in which the executable is not present.  
+### Resources  
+AskUbuntu(Used it for another challenge and indirectly used a command from an answer there)  
+
+
+
+
+
 
 
 
