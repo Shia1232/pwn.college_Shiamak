@@ -39,13 +39,26 @@ hacker@dojo:~$
 In this case, the command was echo, and Hello and Hackers! were the two arguments to echo. Simple!  
 
 In this challenge, to get the flag, you must run the hello command (NOT the echo command) with a single argument of hackers. Try it now!  
-### Solve
+### Solve  
 **Flag:** `pwn.college{0FqCmq1N5N4HpVN_GdGfNp-CHty.QX4YjM1wCN1kjNzEzW}`  
+At first while solving this i was confused on what to do as i thought i had to repeat hello hackers without using echo.  
+On rereading the problem, I understood it clearly that i was required to use hello as a command like the website used echo and substitute how it used Hello as an argument with Hackers.   
 ```
 hacker@hello~intro-to-arguments:~$ hello hackers  
 Success! Here is your flag:  
 pwn.college{0FqCmq1N5N4HpVN_GdGfNp-CHty.QX4YjM1wCN1kjNzEzW}
 ```
+### New Learnings  
+I learnt on what commands are and the usage of the echo command from the example and that an argument is always preceded by  
+a command like so:  
+```
+__command__ **argument(s)**
+```
+### References  
+
+  
+
+
 
 
 
