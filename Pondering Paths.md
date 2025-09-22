@@ -59,6 +59,36 @@ As an aside, now you can see what the ~ was in the prompt! It shows the current 
 This challenge will require you to execute the /challenge/run program from a specific path (which it will tell you).  
 You'll need to cd to that directory before rerunning the challenge program. Good luck!  
 ### Solve
-**Flag:** `    `  
+**Flag:** `pwn.college{oI44ihFnd90_dkLPb-Esdx4qz1s.QX2QTN0wCN1kjNzEzW}`  
+Here, first I used pwd to check which directory I am in to give me a clue as to what I am supposed to do next.  
+On showing it was in /home/hacker, I changed the directory to the root directory as I can access any sub-directories from there.  
+I went to challenge using 'cd' and then tried to execute run directly.Upon trying, it told me i am not in the '/sys' directory.  
+So I went to the '/sys' directory and executed /challenge/run to get the flag. At first I was very confused on what to do but then upon watching the video in the pondering paths  
+module and also chatgpting i figured out that run is an executable and not a directory itself helping me massively in completing the issue.  
+```
+hacker@paths~position-thy-self:~$ pwd
+/home/hacker
+hacker@paths~position-thy-self:~$ cd /
+hacker@paths~position-thy-self:/$ cd challenge
+hacker@paths~position-thy-self:/challenge$ /challenge/run
+Incorrect...
+You are not currently in the /sys directory.
+Please use the `cd` utility to change directory appropriately.
+hacker@paths~position-thy-self:/challenge$ cd /sys
+hacker@paths~position-thy-self:/sys$ /challenge/run
+Correct!!!
+/challenge/run is an absolute path, invoked from the right directory!
+Here is your flag:
+pwn.college{oI44ihFnd90_dkLPb-Esdx4qz1s.QX2QTN0wCN1kjNzEzW}
+```
+### New Learnings
+I learnt the difference between an executable and an directory(also an executable directory) and  
+I learnt the usage of the 'cd' command and how to traverse through directories relatively.  
+### Resources  
+The File system video present in the module, askubuntu and chatgpt.  
+## Position elsewhere  
+
+
+
 
 
