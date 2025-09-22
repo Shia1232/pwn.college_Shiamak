@@ -78,6 +78,8 @@ hackers
 ```
 However upon going up a bit further I saw the message the flag is " _____" which confirmed that I had gone the right way.  
 
+  
+
 ```
 hacker@hello~command-history:~$ the flag is pwn.college{sNbzY3dbQYnes_HM0r5rCaMQrN2.0lNzEzNxwCN1kjNzEzW}
 ```
