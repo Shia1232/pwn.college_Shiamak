@@ -208,11 +208,12 @@ each other:
   - /challenge  
   * /challenge/.  
   + / challenge/./././././././././  
-+ /./././challenge/././  
++ /./././challenge/././
+    
   The following relative paths are also all identical to each other:  
 
-  +  challenge
- + ./challenge
+  -  challenge
+ * ./challenge
 + ./././challenge
 + challenge/.
 
