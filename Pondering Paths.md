@@ -197,6 +197,20 @@ pwn.college{oGKnYygrHJpbrSrowxUsTXenEQF.QX5QTN0wCN1kjNzEzW}
 Learnt how to execute a executable from a cwd in which the executable is not present.  
 ### Resources  
 AskUbuntu(Used it for another challenge and indirectly used a command from an answer there)  
+## explicit relative paths, from /  
+Previously, your relative path was "naked": it directly specified the directory to descend into from the current directory.  
+In this level, we're going to explore more explicit relative paths.  
+
+In most operating systems, including Linux, every directory has two implicit entries that you can reference in  
+paths: . and ... The first, ., refers right to the same directory, so the following absolute paths are all identical to  
+each other:  
+
+  - /challenge  
+  * /challenge/.  
+  + / challenge/./././././././././  
++/./././challenge/././  
+
+
 
 
 
