@@ -52,9 +52,45 @@ pwn.college{0FqCmq1N5N4HpVN_GdGfNp-CHty.QX4YjM1wCN1kjNzEzW}
 I learnt on what commands are and the usage of the echo command from the example and that an argument is always preceded by  
 a command like so:  
 ```
-__command__ **argument(s)**
+[command] argument(s)
 ```
 ### References  
+
+
+## Command History  
+You're going to type a lot of commands, and typing everything from scratch can be annoying.  
+Luckily, the shell saves a history of every command you invoke.
+
+You can scroll through those saved commands with the up/down arrow keys, and we'll practice that in this  
+challenge. This challenge will inject the flag into your history. Bring up a terminal, hit the up arrow, and grab it! In  
+other challenges, the history will contain the log of the commands you've run, so if you need to run a similar  
+command again, you can use the arrow keys to scroll through and find it!  
+### Solve
+**Flag:** `pwn.college{sNbzY3dbQYnes_HM0r5rCaMQrN2.0lNzEzNxwCN1kjNzEzW}`  
+I was confused on how to solve this, upon pressing the upward key  
+i recieved messages such as 
+```
+hello
+```
+and   
+```
+hackers
+```
+However upon going up a bit further I saw the message the flag is " _____" which confirmed that I had gone the right way.  
+
+```
+hacker@hello~command-history:~$ the flag is pwn.college{sNbzY3dbQYnes_HM0r5rCaMQrN2.0lNzEzNxwCN1kjNzEzW}
+```
+### New Learnings  
+I learnt the usefulness of the up arrow key which saved me time in writing the same long commands later on and  
+which also helped me execute programs using the terminal much more smoothly making mistakes much more forgiving  
+### References  
+
+
+  
+
+
+
 
   
 
