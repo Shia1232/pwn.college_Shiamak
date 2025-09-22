@@ -213,9 +213,9 @@ each other:
   The following relative paths are also all identical to each other:  
 
   - challenge
- * ./challenge
-+ ./././challenge
-+ challenge/.
+ - ./challenge
+- ./././challenge
+- challenge/.
 
 
 
