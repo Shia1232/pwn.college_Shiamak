@@ -33,5 +33,30 @@ This challenge again requires you to execute it by invoking its absolute path. Y
 that is in the challenge directory that is, in turn, in the / directory. If you invoke the challenge correctly, it will give  
 you the flag. Good luck!  
 ### Solve
-**Flag:** ` `
+**Flag:** `pwn.college{Q6gLCwUaXSh2qYy98tS2B0zX3Xz.QX1QTN0wCN1kjNzEzW}`  
+The thought proccess was to not run the directories one by one and then go to the run directory as that is using relative path but rather to use the concept of absolute path to directly run   the executable 'run' program  
+```
+hacker@paths~program-and-absolute-paths:~$ /challenge/run   
+Correct!!!  
+/challenge/run is an absolute path! Here is your flag:  
+pwn.college{Q6gLCwUaXSh2qYy98tS2B0zX3Xz.QX1QTN0wCN1kjNzEzW}   
+```
+### New Learnings
+I learnt a little bit more complex application of an absolute path and how it is really used.  
+### Resources  
+
+## Position thy self 
+ The Linux filesystem has tons of directories with tons of files. You can navigate around directories by using the  
+ cd (change directory) command and passing a path to it as an argument, as so:  
+ ```
+hacker@dojo:~$ cd /some/new/directory  
+hacker@dojo:/some/new/directory$
+```
+This affects the "current working directory" of your process (in this case, the bash shell). Each process has a  
+directory in which it's currently hanging out. The reasons for this will become clear later in the module.  
+As an aside, now you can see what the ~ was in the prompt! It shows the current path that your shell is located at.  
+
+This challenge will require you to execute the /challenge/run program from a specific path (which it will tell you).  
+You'll need to cd to that directory before rerunning the challenge program. Good luck!
+
 
