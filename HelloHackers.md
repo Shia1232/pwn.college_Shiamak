@@ -2,10 +2,11 @@
   ## Intro To Commands
   ### Solve
   **Flag:** `pwn.college{kMfQW2NQqTTUJs7jaT6y-YgCUMd.QX3YjM1wCN1kjNzEzW}`  
-  ```hacker@hello~intro~to~commands: ~$ hello```  
-  ``` 
-Success! Here is your flag:
-pwn.college{kMfQW2NQqTTUJs7jaT6y-YgCUMd.QX3YjM1wCN1kjNzEzW}```
+```
+hacker@hello~intro-to-commands:~$ hello  
+Success! Here is your flag:  
+pwn.college{kMfQW2NQqTTUJs7jaT6y-YgCUMd.QX3YjM1wCN1kjNzEzW}  
+```
 
 
 ### New Learnings
