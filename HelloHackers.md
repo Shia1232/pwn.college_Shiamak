@@ -21,7 +21,7 @@ pwn.college{kMfQW2NQqTTUJs7jaT6y-YgCUMd.QX3YjM1wCN1kjNzEzW}
 ### New Learnings
 I learnt how to properly connect to pwn.college using ssh and moreover how to get the flag and put it in pwn.college to get the key.  
 ### References  
-
+  
 ## Intro To Arguments  
 Let's try something more complicated: a command with arguments, which is what we call additional data passed to the command. When you type a line of text and hit enter, the shell actually parses your input into a command and its   arguments. The first word is the command, and the subsequent words are arguments. Observe:  
 ```
