@@ -85,7 +85,7 @@ pwn.college{oI44ihFnd90_dkLPb-Esdx4qz1s.QX2QTN0wCN1kjNzEzW}
 I learnt the difference between an executable and an directory(also an executable directory) and  
 I learnt the usage of the 'cd' command and how to traverse through directories relatively.  
 ### Resources  
-The File system video present in the module, askubuntu and chatgpt.  
+The File system video present in the module, Askubuntu and Chatgpt.  
 ## Position elsewhere  
 The Linux filesystem has tons of directories with tons of files. You can navigate around directories by using the   
 cd (change directory) command and passing a path to it as an argument, as so:  
@@ -123,6 +123,61 @@ pwn.college{ItCoBlRsqU4yAl2KjGzBDIZ0Xfp.QX3QTN0wCN1kjNzEzW}
 ### New Learnings
 Learnt how to work with much more complex paths and executed two instances of this challenge once using the correct directory's absolute path and once using its relative path(shown in the solve).  
 ### Resources  
+## Position yet elsewhere  
+The Linux filesystem has tons of directories with tons of files. You can navigate around directories by using the  
+cd (change directory) command and passing a path to it as an argument, as so:  
+```
+hacker@dojo:~$ cd /some/new/directory  
+hacker@dojo:/some/new/directory$  
+```
+This affects the "current working directory" of your process (in this case, the bash shell). Each process has a  
+directory in which it's currently hanging out. The reasons for this will become clear later in the module.  
+
+As an aside, now you can see what the ~ was in the prompt! It shows the current path that your shell is located at.  
+
+This challenge will require you to execute the /challenge/run program from a specific path (which it will tell you).  
+You'll need to cd to that directory before rerunning the challenge program. Good luck!  
+### Solve  
+**Flag:** `pwn.college{sp76r5lt1mA6tz_MQ_FBi8FOgQy.QX4QTN0wCN1kjNzEzW}`  
+```
+hacker@paths~position-yet-elsewhere:~$ pwd  
+/home/hacker  
+hacker@paths~position-yet-elsewhere:~$ cd /  
+hacker@paths~position-yet-elsewhere:/$ cd challenge  
+hacker@paths~position-yet-elsewhere:/challenge$ /challenge/run  
+Incorrect...  
+You are not currently in the /var/log directory.  
+Please use the `cd` utility to change directory appropriately.  
+hacker@paths~position-yet-elsewhere:/challenge$ cd /var/log  
+hacker@paths~position-yet-elsewhere:/var/log$ /challenge/run  
+Correct!!!  
+/challenge/run is an absolute path, invoked from the right directory!  
+Here is your flag:  
+pwn.college{sp76r5lt1mA6tz_MQ_FBi8FOgQy.QX4QTN0wCN1kjNzEzW}  
+```
+### New Learnings 
+Learnt how to work with much more complex paths and executed two instances of this challenge once using the correct directory's absolute path(shown in the solve) and once using its relative path.  
+### Resources  
+## Implicit relative paths,from /
+Now you're familiar with the concept of referring to absolute paths and changing directories. If you put in  
+absolute paths everywhere, then it really doesn't matter what directory you are in, as you likely found out in the  
+previous three challenges.  
+
+However, the current working directory does matter for relative paths.  
+
+    -A relative path is any path that does not start at root (i.e., it does not start with /).  
+    -A relative path is interpreted relative to your current working directory (cwd).  
+    -Your cwd is the directory that your prompt is currently located at.  
+
+This means how you specify a particular file, depends on where the terminal prompt is located.  
+
+Imagine we want to access some file located at /tmp/a/b/my_file.  
+
+    -If my cwd is /, then a relative path to the file is tmp/a/b/my_file.  
+    -If my cwd is /tmp, then a relative path to the file is a/b/my_file.  
+    -If my cwd is /tmp/a/b/c, then a relative path to the file is ../my_file. The .. refers to the parent directory.  
+
+Let's try it here! You'll need to run /challenge/run using a relative path while having a current working directory of /. For this level, I'll give you a hint. Your relative path starts with the letter c 😊  
 
 
 
