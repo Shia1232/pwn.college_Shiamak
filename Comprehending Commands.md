@@ -1,5 +1,5 @@
 # Comprehending Commands  
-## cat:not the pet,but the command!  
+## cat: not the pet,but the command!  
 One of the most critical Linux commands is cat. cat is most often used for reading out files, like so:  
 ```
 hacker@dojo:~$ cat /challenge/DESCRIPTION.md  
@@ -78,6 +78,68 @@ pwn.college{cPBpWmLsCqT67hBdjyZyTuA8MJB.QXwITO0wCN1kjNzEzW}
 I learnt how to cat into a file using an absolute path.  
 ### Resources  
 ## grepping for a needle in a haystack  
+Sometimes, the files that you might cat out are too big. Luckily, we have the grep command to search for the  
+contents we need! We'll learn it in this challenge.  
+There are many ways to grep, and we'll learn one way here:  
+```
+hacker@dojo:~$ grep SEARCH_STRING /path/to/file
+```
+nvoked like this, grep will search the file for lines of text containing SEARCH_STRING and print them to the console.  
+
+In this challenge, I've put a hundred thousand lines of text into the /challenge/data.txt file. grep it for the flag!  
+
+HINT: The flag always starts with the text pwn.college.  
+### Solve  
+**Flag:** `pwn.college{csgHD9DIaURGFIg6a6MC2H3_WF-.QX3EDO0wCN1kjNzEzW}`  
+The general command syntax of grep was given so i replaced search_string with pwn.college so that only text with pwn.college  
+shows up and the absolute path was given for me to cat the text out from.  
+```
+hacker@commands~grepping-for-a-needle-in-a-haystack:~$ grep pwn.college /challenge/data.txt  
+pwn.college{csgHD9DIaURGFIg6a6MC2H3_WF-.QX3EDO0wCN1kjNzEzW}  
+```
+### New Learnings  
+I learnt the usage of the grep command and how to search for a string with a a certain key or keyword in it.  
+### Resources  
+## comparing files  
+When looking for changes between similar files, eyeballing them might not be the most efficient approach! This  
+is where the diff command becomes invaluable.  
+
+diff compares two files line by line and shows you exactly what's different between them. For example:  
+```
+hacker@dojo:~$ cat file1  
+hello  
+world  
+hacker@dojo:~$ cat file2  
+hello  
+universe  
+hacker@dojo:~$ diff file1 file2  
+2c2  
+< world  
+---  
+> universe  
+```
+The output tells us that line 2 changed (2c2), with world in the first file (<) being replaced by universe in the  
+second file (>).  
+
+Sometimes, when new lines are added, you'll see something like:  
+```
+hacker@dojo:~$ cat old  
+pwn  
+hacker@dojo:~$ cat new  
+pwn  
+college  
+hacker@dojo:~$ diff old new  
+1a2  
+> college
+```
+This tells us that after line 1 in the first file, the second file has an additional line (1a2 means "after line 1 of file1, add  
+line 2 of file2").  
+Now for your challenge! There are two files in /challenge:  
++/challenge/decoys_only.txt contains 100 fake flags  
+*/challenge/decoys_and_real.txt contains all 100 fake flags plus the one real flag  
+Use diff to find what's different between these files and get your flag!  
+### Solve
+**Flag:** ``  
 
 
 
