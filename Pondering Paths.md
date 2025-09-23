@@ -237,7 +237,118 @@ pwn.college{8vgd9FZ5gzoNPfa_PewqByYObHn.QXwUTN0wCN1kjNzEzW}
 I learnt the usage of the . in a relative path  
 
 ### Resources  
-  
+## implicit relative path 
+In this level, we'll practice referring to paths using . a bit more. This challenge will need you to run it from the /  
+challenge directory. Here, things get slightly tricky.  
+
+Linux explicitly avoids automatically looking in the current directory when you provide a "naked" path. Consider the  
+following:  
+```
+hacker@dojo:~$ cd /challenge  
+hacker@dojo:/challenge$ run  
+```
+This will not invoke /challenge/run. This is actually a safety measure: if Linux searched the current directory for  
+programs every time you entered a naked path, you could accidentally execute programs in your current directory  
+that happened to have the same names as core system utilities! As a result, the above commands will yield the  
+following error:  
+```
+bash: run: command not found
+```
+We'll explore the mechanisms behind this concept later, but in this challenge, we'll learn how to explicitly use  
+relative paths to launch run in this scenario. The way to do this is to tell Linux that you explicitly want to execute a  
+program in the current directory, using . like in the previous levels. Give it a try now!  
+### Solve
+**Flag:** `pwn.college{QveR6qNqVBnjAtLaOUCiydG4qih.QXxUTN0wCN1kjNzEzW}`  
+Here I first thought we had to run challenge/run from the '/' directory. On testing, it told me that I needed to do so from the '/challenge' directory instead.  
+Thus I realized we have to invoke run from the '/challenge' by implicitly invoking it to avoid the 2nd error given in the problem statement solving the problem.  
+```
+hacker@paths~implicit-relative-path:~$ pwd  
+/home/hacker  
+hacker@paths~implicit-relative-path:~$ cd /  
+hacker@paths~implicit-relative-path:/$ ./challenge/run  
+Incorrect...  
+You are not currently in the /challenge directory.  
+Please use the `cd` utility to change directory appropriately.  
+hacker@paths~implicit-relative-path:/$ cd challenge  
+hacker@paths~implicit-relative-path:/challenge$ ./run  
+Correct!!!  
+./run is a relative path, invoked from the right directory!  
+Here is your flag:  
+pwn.college{QveR6qNqVBnjAtLaOUCiydG4qih.QXxUTN0wCN1kjNzEzW}  
+```
+### New Learnings  
+I learnt to use '.' implicitly to invoke a executable in the directory directly without having to go to the directory above it.  
+### Resources  
+
+## home sweet home  
+Every user has a home directory, typically under /home in the filesystem. In the dojo, you are the hacker user,  
+and your home directory is /home/hacker. The home directory is typically where users store most of their personal  
+files. As you make your way through pwn.college, this is where you'll store most of your solutions.  
+
+Typically, your shell session will start with your home directory as your current working directory. Consider the  
+initial prompt:
+```
+hacker@dojo:~$  
+```
+The ~ in this prompt is the current working directory, with ~ being shorthand for /home/hacker. Bash provides and  
+uses this shorthand because, again, most of your time will be spent in your home directory. Thus, whenever bash  
+sees ~ provided as the start of an argument in a way consistent with a path, it will expand it to your home  
+directory. Consider:  
+```
+hacker@dojo:~$ echo LOOK: ~  
+LOOK: /home/hacker  
+hacker@dojo:~$ cd /  
+hacker@dojo:/$ cd ~  
+hacker@dojo:~$ cd ~/asdf  
+hacker@dojo:~/asdf$ cd ~/asdf  
+hacker@dojo:~/asdf$ cd ~  
+hacker@dojo:~$ cd /home/hacker/asdf  
+hacker@dojo:~/asdf$
+```
+Note that the expansion of ~ is an absolute path, and only the leading ~ is expanded. This means, for example, that  
+~/~ will be expanded to /home/hacker/~ rather than /home/hacker/home/hacker.  
+Fun fact: cd will use your home directory as the default destination:  
+```
+hacker@dojo:~$ cd /tmp  
+hacker@dojo:/tmp$ cd  
+hacker@dojo:~$
+```
+Now it's your turn to play! In this challenge, /challenge/run will write a copy of the flag to any file you specify as  
+an argument on the commandline, with these constraints:  
+
+1.Your argument must be an absolute path.  
+2.The path must be inside your home directory.  
+3.Before expansion, your argument must be three characters or less.  
+Again, you must specify your path as an argument to /challenge/run as so:  
+```
+hacker@dojo:~$ /challenge/run YOUR_PATH_HERE
+```
+### Solve  
+**Flag:** `pwn.college{4r7HjVJvvNlokmj9by0TSFKhugE.QXzMDO0wCN1kjNzEzW}`  
+So while solving this I went for the ls to check for any small files that might be present.Then on that failing I used  
+/challenge/run tmp because i thought i had to use a valid file but i made the mistake of not using an absolute path.  
+On figuring that out , I just typed in a random file name 'a' after ~/ which worked as it was an absolute path.  
+```
+hacker@paths~home-sweet-home:~$ ls  
+hacker@paths~home-sweet-home:~$ ls ~  
+hacker@paths~home-sweet-home:~$ /challenge/run tmp  
+The argument you provided is not an absolute path!  
+hacker@paths~home-sweet-home:~$ /challenge/run ~/a  
+Writing the file to /home/hacker/a!  
+... and reading it back to you:  
+pwn.college{4r7HjVJvvNlokmj9by0TSFKhugE.QXzMDO0wCN1kjNzEzW}  
+```
+### New Learnings  
+I learnt what the '~' directory actually is and its usage in an absolute path.  
+## Resources  
+
+ 
+
+
+
+
+
+
 
 
 
