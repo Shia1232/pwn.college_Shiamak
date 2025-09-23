@@ -135,8 +135,8 @@ hacker@dojo:~$ diff old new
 This tells us that after line 1 in the first file, the second file has an additional line (1a2 means "after line 1 of file1, add  
 line 2 of file2").  
 Now for your challenge! There are two files in /challenge:  
-+/challenge/decoys_only.txt contains 100 fake flags  
-*/challenge/decoys_and_real.txt contains all 100 fake flags plus the one real flag  
+- /challenge/decoys_only.txt contains 100 fake flags  
++ /challenge/decoys_and_real.txt contains all 100 fake flags plus the one real flag  
 Use diff to find what's different between these files and get your flag!  
 ### Solve
 **Flag:** ``  
