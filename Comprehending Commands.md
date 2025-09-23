@@ -285,7 +285,18 @@ hacker@dojo:~$
 ```
 Now, it's your turn! Go find the flag, hidden as a dot-prepended file in /.  
 ### Solve  
-**Flag:** ``
+**Flag:** `pwn.college{A54VBM9Xs7GKJAB6Bq4e2_IPlVS.QXwUDO0wCN1kjNzEzW}`  
+```
+hacker@commands~hidden-files:~$ cd /
+hacker@commands~hidden-files:/$ ls -a
+.                      bin        etc    lib64   nix   run   tmp
+..                     boot       home   libx32  opt   sbin  usr
+.dockerenv             challenge  lib    media   proc  srv   var
+.flag-133072577915997  dev        lib32  mnt     root  sys
+hacker@commands~hidden-files:/$ cat .flag-133072577915997
+pwn.college{A54VBM9Xs7GKJAB6Bq4e2_IPlVS.QXwUDO0wCN1kjNzEzW}
+```
+
 
 
 
