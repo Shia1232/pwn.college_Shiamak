@@ -322,6 +322,8 @@ how it'll work:
 Good Luck!  
 ### Solve 
 **Flag:** `pwn.college{scGysvN9cF6r-pb_dp1A274OOIo.QX5IDO0wCN1kjNzEzW}`  
+At first I was very confused on how to read the files present in the directory without ``cd``-ing into the directory but upon brushing upon what I had learnt earlier  
+,I realized I could do so using `ls` with the file path which helped me solve the problem.  
 ```
 hacker@commands~an-epic-filesystem-quest:~$ cd /
 hacker@commands~an-epic-filesystem-quest:/$ ls
@@ -521,6 +523,9 @@ user. These will cause find to generate errors, but you can ignore those; we won
 can take a while; be patient!  
 ### Solve  
 **Flag:** `pwn.college{c4QBQ3eHwPqfBlkvjQxc1sqJIFU.QXyMDO0wCN1kjNzEzW}`  
+Here the thought process was to find every file with flag in it and testing out the ones which  
+I have access to.The part I was stuck on was figuring out which one has the flag until I realized only /var/backups/flag  
+is a file which I read to find the flag.  
 ```
 hacker@commands~finding-files:~$ find / -name flag
 find: ‘/tmp/tmp.TpSOPGOVKK’: Permission denied
@@ -602,6 +607,7 @@ bash: cd: /var/backups/flag: Not a directory
 hacker@commands~finding-files:~$ ls /usr/local/lib/python3.8/dist-packages/pwnlib/flag
 __init__.py  __pycache__  flag.py
 hacker@commands~finding-files:~$ cat /var/backups/flag
+pwn.college{c4QBQ3eHwPqfBlkvjQxc1sqJIFU.QXyMDO0wCN1kjNzEzW}hacker@commands~finding-files:~$ 
 ```
 ### New Learnings  
 I learnt how to find files in a directory, in general and using a filter by name.  
@@ -616,7 +622,58 @@ Links come in two flavors: hard and soft (also known as symbolic) links. We'll d
    place (e.g., Apt 2 vs Unit 2).
 * A soft link is when you move apartments and have the postal service automatically forward your mail from your  
    old place to your new place.
-  
+In a filesystem, a file is, conceptually, an address at which the contents of that file live. A hard link is an alternate  
+address that indexes that data --- accesses to the hard link and accesses to the original file are completely  
+identical, in that they immediately yield the necessary data. A soft/symbolic link, instead, contains the original file  
+name. When you access the symbolic link, Linux will realize that it is a symbolic link, read the original file name, and  
+then (typically) automatically access that file. In most cases, both situations result in accessing the original data,  
+but the mechanisms are different.
+
+Hard links sound simpler to most people (case in point, I explained it in one sentence above, versus two for soft  
+links), but they have various downsides and implementation gotchas that make soft/symbolic links, by far, the  
+more popular alternative.  
+
+In this challenge, we will learn about symbolic links (also known as symlinks). Symbolic links are created with the ``ln``  
+command with the -s argument, like so:  
+```
+hacker@dojo:~$ cat /tmp/myfile
+This is my file!
+hacker@dojo:~$ ln -s /tmp/myfile /home/hacker/ourfile
+hacker@dojo:~$ cat ~/ourfile
+This is my file!
+hacker@dojo:~$
+```
+You can see that accessing the symlink results in getting the original file contents! Also, you can see the usage of  
+ln -s. Note that the original file path comes before the link path in the command!  
+
+A symlink can be identified as such with a few methods. For example, the file command, which takes a filename  
+and tells you what type of file it is, will recognize symlinks:  
+```
+hacker@dojo:~$ file /tmp/myfile
+/tmp/myfile: ASCII text
+hacker@dojo:~$ file ~/ourfile
+/home/hacker/ourfile: symbolic link to /tmp/myfile
+hacker@dojo:~$
+```
+Okay, now you try it! In this level the flag is, as always, in /flag, but /challenge/catflag will instead read out /home/  
+hacker/not-the-flag. Use the symlink, and fool it into giving you the flag!  
+### Solve 
+**Flag:** `pwn.college{0zIa6lgOt_ey4HfQw5fvG-FpsWu.QX5ETN1wCN1kjNzEzW}`
+I had an issue figuring out how to overwrite the symbolic link in /home/hacker/not-the-flag but after a bit of help from my mentor I figured out  
+how to overwrite a symbolic link.  
+```
+hacker@commands~linking-files:~$ ln -s /flag /home/hacker/not-the-flag
+ln: failed to create symbolic link '/home/hacker/not-the-flag': File exists
+hacker@commands~linking-files:~$ ln -sf /flag /home/hacker/not-the-flag
+hacker@commands~linking-files:~$ /challenge/catflag
+About to read out the /home/hacker/not-the-flag file!
+pwn.college{0zIa6lgOt_ey4HfQw5fvG-FpsWu.QX5ETN1wCN1kjNzEzW}
+```
+### New Learnings  
+I learnt how to create a symlink and more importantly how to overwrite one using the  
+``ln -sf`` command.  
+### Resources  
+
 
 
 
