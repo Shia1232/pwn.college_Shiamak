@@ -211,6 +211,205 @@ Correct usage! Your flag: pwn.college{gh4kJ0EKHsJ1tERGSWb732CCJWa.QX1EDO0wCN1kjN
 ### New Learnings  
 I learnt how to navigate the manual or ``man`` command better using searching and n.  
 ### Resources  
+## Searching For Manuals  
+This level is tricky: it hides the manpage for the challenge by randomizing its name. Luckily, all of the manpages are gathered  
+in a searchable database, so you'll be able to search the man page database to find the hidden  
+challenge man page! To figure out how to search for the right manpage, read the man page manpage by doing: man  
+man!  
+
+-------------------------------------------------------------------------------------------------------------------------------  
+HINT 1: man man teaches you advanced usage of the man command itself, and you must use this knowledge to figure  
+out how to search for the hidden manpage that will tell you how to use /challenge/challenge	  
+
+HINT 2: though the manpage is randomly named, you still actually use /challenge/challenge to get the flag!  
+### Solve  
+**Flag:** `pwn.college{Q2ESPr6xV9JqVw6FNlJbiUj1HzM.QX2EDO0wCN1kjNzEzW}`
+I was on the right track on this program but I got stuck as I didn't read the manpage fully.  
+Upon finally reading the manpage using ``-K`` argument I got the solution.  
+```
+hacker@man~searching-for-manuals:~$ man man
+hacker@man~searching-for-manuals:~$ man -k /challenge/challenge flag
+rxqwlbijzw (1)       - print the flag!
+dpkg-buildflags (1)  - returns build flags to use during package build
+Dpkg::BuildFlags (3perl) - query build flags
+fegetexceptflag (3)  - floating-point rounding and exception handling
+fesetexceptflag (3)  - floating-point rounding and exception handling
+i386 (8)             - change reported architecture in new program environmen...
+ioctl_iflags (2)     - ioctl() operations for inode flags
+linux32 (1)          - change reported architecture in new program environmen...
+linux64 (1)          - change reported architecture in new program environmen...
+pcap-config (1)      - write libpcap compiler and linker flags to standard ou...
+security_compute_av_flags (3) - query the SELinux policy database in the kernel
+security_compute_av_flags_raw (3) - query the SELinux policy database in the ...
+set_matchpathcon_flags (3) - set flags controlling the operation of matchpath...
+set_matchpathcon_invalidcon (3) - set flags controlling the operation of matc...
+set_matchpathcon_printf (3) - set flags controlling the operation of matchpat...
+setarch (1)          - change reported architecture in new program environmen...
+setarch (8)          - change reported architecture in new program environmen...
+x86_64 (8)           - change reported architecture in new program environmen...
+hacker@man~searching-for-manuals:~$ /challenge/challenge rxqwlbijzw
+Incorrect usage! Please read the hidden challenge man page!
+hacker@man~searching-for-manuals:~$ man man
+hacker@man~searching-for-manuals:~$ man -k /challenge/challenge print
+rxqwlbijzw (1)       - print the flag!
+aarch64-linux-gnu-strings (1) - print the sequences of printable characters i...
+arch (1)             - print machine hardware name (same as uname -m)
+asprintf (3)         - print to allocated string
+base32 (1)           - base32 encode/decode data and print to standard output
+base64 (1)           - base64 encode/decode data and print to standard output
+blkid (8)            - locate/print block device attributes
+bsd-from (1)         - print names of those who have sent mail
+cat (1)              - concatenate files and print on the standard output
+date (1)             - print or set the system date and time
+dbus-monitor (1)     - debug probe to print message bus messages
+dmesg (1)            - print or control the kernel ring buffer
+dprintf (3)          - formatted output conversion
+egrep (1)            - print lines that match patterns
+error_print_progname (3) - glibc error reporting functions
+fgrep (1)            - print lines that match patterns
+fixpspps (1)         - filter to fix PSPrint PostScript so PSUtils work
+fmtcheck (3bsd)      - sanitizes user-supplied printf(3)-style format string
+fmtmsg (3)           - print formatted error messages
+fortune (6)          - print a random, hopefully interesting, adage
+fprintf (3)          - formatted output conversion
+from (1)             - print names of those who have sent mail
+fwprintf (3)         - formatted wide-character output conversion
+git-grep (1)         - Print lines matching a pattern
+grep (1)             - print lines that match patterns
+groups (1)           - print the groups a user is in
+hostid (1)           - print the numeric identifier for the current host
+id (1)               - print real and effective user and group IDs
+Image::ExifTool::PrintIM (3pm) - Read PrintIM meta information
+infocmp (1)          - compare or print out terminfo descriptions
+isprint (3)          - character classification functions
+isprint_l (3)        - character classification functions
+iswprint (3)         - test for printing wide character
+jfr (1)              - parse and print Flight Recorder files
+jmap (1)             - print details of a specified process
+jshell (1)           - interactively evaluate declarations, statements, and e...
+jstack (1)           - print Java stack traces of Java threads for a specifie...
+ldd (1)              - print shared object dependencies
+logname (1)          - print user's login name
+lp (4)               - line printer devices
+lsb_release (1)      - print distribution-specific information
+malloc_stats (3)     - print memory allocation statistics
+mode_to_security_class (3) - convert between SELinux class and permission val...
+ms_print (1)         - post-processing tool for Massif
+my_print_defaults (1) - display options from option files
+netstat (8)          - Print network connections, routing tables, interface s...
+nfnl_osf (8)         - OS fingerprint loader utility
+nproc (1)            - print the number of processing units available
+openssl-spkac (1ssl) - SPKAC printing and generating utility
+openssl-version (1ssl) - print OpenSSL version information
+pahole (1)           - Shows, manipulates data structure layout and pretty pr...
+pam_echo (8)         - PAM module for printing text messages
+paperconf (1)        - print paper configuration information
+pcap_geterr (3pcap)  - get or print libpcap error message text
+pcap_perror (3pcap)  - get or print libpcap error message text
+perror (3)           - print a system error message
+pod2usage (1)        - print usage messages from embedded pod docs in files
+podselect (1)        - print selected sections of pod documentation on standa...
+pr (1)               - convert text files for printing
+print (1)            - execute programs via entries in the mailcap file
+print_access_vector (3) - convert between SELinux class and permission values...
+printenv (1)         - print all or part of environment
+printerbanner (1)    - print large banner on printer
+printf (1)           - format and print data
+printf (3)           - formatted output conversion
+prtstat (1)          - print statistics of a process
+psiginfo (3)         - print signal message
+psignal (3)          - print signal message
+pwd (1)              - print name of current/working directory
+py3versions (1)      - print python3 version information
+readlink (1)         - print resolved symbolic links or canonical file names
+realpath (1)         - print the resolved path
+rgrep (1)            - print lines that match patterns
+runlevel (8)         - Print previous and current SysV runlevel
+security_av_perm_to_string (3) - convert between SELinux class and permission...
+security_av_string (3) - convert between SELinux class and permission values ...
+security_class_to_string (3) - convert between SELinux class and permission v...
+seq (1)              - print a sequence of numbers
+set_matchpathcon_printf (3) - set flags controlling the operation of matchpat...
+shasum (1)           - Print or Check SHA Checksums
+showfigfonts (6)     - prints a list of available figlet fonts
+snprintf (3)         - formatted output conversion
+spkac (1ssl)         - SPKAC printing and generating utility
+sprintf (3)          - formatted output conversion
+string_to_av_perm (3) - convert between SELinux class and permission values a...
+string_to_security_class (3) - convert between SELinux class and permission v...
+strings (1)          - print the sequences of printable characters in files
+stty (1)             - change and print terminal line settings
+swaplabel (8)        - print or change the label or UUID of a swap area
+swprintf (3)         - formatted wide-character output conversion
+sys_errlist (3)      - print a system error message
+sys_nerr (3)         - print a system error message
+systemd-id128 (1)    - Generate and print sd-128 identifiers
+tac (1)              - concatenate and print files in reverse
+tex2mail (1)         - TeX to ascii math prettyprinter
+tty (1)              - print the file name of the terminal connected to stand...
+uname (1)            - print system information
+users (1)            - print the user names of users currently logged in to t...
+vasprintf (3)        - print to allocated string
+vdprintf (3)         - formatted output conversion
+version (1ssl)       - print OpenSSL version information
+vfprintf (3)         - formatted output conversion
+vfwprintf (3)        - formatted wide-character output conversion
+vprintf (3)          - formatted output conversion
+vsnprintf (3)        - formatted output conversion
+vsprintf (3)         - formatted output conversion
+vswprintf (3)        - formatted wide-character output conversion
+vwprintf (3)         - formatted wide-character output conversion
+watchgnupg (1)       - Read and print logs from a socket
+wc (1)               - print newline, word, and byte counts for each file
+whoami (1)           - print effective userid
+wprintf (3)          - formatted wide-character output conversion
+x86_64-linux-gnu-strings (1) - print the sequences of printable characters in...
+hacker@man~searching-for-manuals:~$ man -K /challenge/challenge flag
+man         
+--Man-- next: curl-config(1) [ view (return) | skip (Ctrl-D) | quit (Ctrl-C) ]
+--Man-- next: ncursesw6-config(1) [ view (return) | skip (Ctrl-D) | quit (Ctrl-C) ]
+^C         
+hacker@man~searching-for-manuals:~$ ^C
+hacker@man~searching-for-manuals:~$ ^C
+hacker@man~searching-for-manuals:~$ ^C
+hacker@man~searching-for-manuals:~$ ^C
+hacker@man~searching-for-manuals:~$ /challenge/challenge --rxqwlb 269
+Correct usage! Your flag: pwn.college{Q2ESPr6xV9JqVw6FNlJbiUj1HzM.QX2EDO0wCN1kjNzEzW}
+```
+### New Learnings
+Learnt how to access the manual page for the ``man`` command and also how to navigate  
+it properly.  
+### Resources  
+## Helpful Programs  
+Some programs don't have a man page, but might tell you how to run them if invoked with a special argument.  
+Usually, this argument is --help, but it can often be -h or, in rare cases, -?, help, or other esoteric values like /?  
+(though that latter is more frequently encountered on Windows).  
+
+In this level, you will practice reading a program's documentation with --help. Try it out!  
+### Solve  
+**Flag:** `pwn.college{k0OtJacHzLIyTNp4nLEm4LfbPil.QX3IDO0wCN1kjNzEzW}`  
+Here I saw -p which would print the correct argument for the ``-g`` argument and I used that first  
+to get the secret value and then used ``-g`` with the secret value to get the flag.  
+```
+hacker@man~helpful-programs:~$ /challenge/challenge --help
+usage: a challenge to make you ask for help [-h] [--fortune] [-v] [-g GIVE_THE_FLAG] [-p]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --fortune             read your fortune
+  -v, --version         get the version number
+  -g GIVE_THE_FLAG, --give-the-flag GIVE_THE_FLAG
+                        get the flag, if given the correct value
+  -p, --print-value     print the value that will cause the -g option to give you the flag
+hacker@man~helpful-programs:~$ /challenge/challenge -p
+The secret value is: 44
+hacker@man~helpful-programs:~$ /challenge/challenge -g 44
+Correct usage! Your flag: pwn.college{k0OtJacHzLIyTNp4nLEm4LfbPil.QX3IDO0wCN1kjNzEzW}
+```
+### New Learnings  
+I learnt the usage of the ``--help`` command as an alternative to the ``man`` command.  
+### Resources  
+
   
 
 
