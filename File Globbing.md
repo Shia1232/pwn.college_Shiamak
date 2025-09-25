@@ -241,14 +241,14 @@ I learnt how to search for files without certain words/letters(excludsionary glo
 ### Resources  
 ## Tab Completion 
 As tempting as it might be, using * to shorten what must be typed on the commandline can lead to mistakes.  
-Your glob might expand to unintended files, and you might not spot it until the rm command is already running! No  
+Your glob might expand to unintended files, and you might not spot it until the ``rm`` command is already running! No  
 one is safe from this style of error.  
 
 A safer alternative when you are trying to specify a specific target is tab completion. If you hit tab in the shell, it'll  
 try to figure out what you're going to type and automatically complete it. Auto-completion is super useful, and  
 this challenge will explore its use in specifying files.  
 
-This challenge has copied the flag into /challenge/pwncollege, and you can freely cat that file. But you can't type  
+This challenge has copied the flag into ``/challenge/pwncollege``, and you can freely ``cat`` that file. But you can't type  
 the filename: we used some serious trickery to make sure that you must tab-complete it. Try it out!  
 ```
 hacker@dojo:~$ ls /challenge
@@ -261,7 +261,63 @@ hacker@dojo:~$
 ```
 When you hit that tab key, the name will expand and you'll be able to read the file. Good luck!  
 ### Solve  
+**Flag:** `pwn.college{0AY0rLCtFERCZRTKDMcaBTBEok3.0FN0EzNxwCN1kjNzEzW}`  
+```
+hacker@globbing~tab-completion:~$ /challenge/pwncollege
+bash: /challenge/pwncollege: No such file or directory
+hacker@globbing~tab-completion:~$ cat /challenge/pwncollege​ 
+.bash_history  .config/       a              flagg          
+.cache/        .lesshst       flag           not-the-flag   
+hacker@globbing~tab-completion:~$ cat /challenge/pwncollege​ 
+pwn.college{0AY0rLCtFERCZRTKDMcaBTBEok3.0FN0EzNxwCN1kjNzEzW}
+```
+### New Learnings  
+I learnt about tab completion which is a safer way to shorten what I need to type to access a file.  
+### Resources  
+## Multiple options for tab completion  
+Consider the following situation:  
+```
+hacker@dojo:~$ ls
+flag  flamingo  flowers
+hacker@dojo:~$ cat f<TAB>
+
+```
+There are multiple options! What happens?  
+
+What happens varies based on the specific shell and its options. By default bash will auto-expand until the first  
+point when there are multiple options (in this case, fl). When you hit tab a second time, it'll print out those  
+options. Other shells and configurations, instead, will cycle through the options.  
+
+This challenge has a /challenge/files directory with a bunch of files starting with pwncollege. Tab-complete from  
+/challenge/files/p or so, and make your way to the flag!  
+### Solve  
 **Flag:** ``
+```
+```
+### New Learnings  
+### Resources  
+## Tab Completion on commands  
+Tab completion is for more than files! You can also tab-complete commands. This level has a command that  
+starts with pwncollege, and it'll give you the flag. Type pwncollege and hit the tab key to auto-complete it!  
+
+---------------------------------------------------------------------------------------------------------------------  
+NOTE: You can auto-complete any command, but be careful: callous auto-completes without double-checking the  
+result can wreak havoc in your shell if you accidentally run the wrong commands!  
+### Solve  
+**Flag:** `pwn.college{sU6YQoVtuNHk5iSr0pqkKp9Po7n.0VN0EzNxwCN1kjNzEzW}`  
+```
+hacker@globbing~tab-completion-on-commands:~$ pwncollege-22231 
+Correct! Here is your flag:
+pwn.college{sU6YQoVtuNHk5iSr0pqkKp9Po7n.0VN0EzNxwCN1kjNzEzW}
+```
+### New Learnings  
+I learnt how to auto-complete commands from this challenge.  
+### Resources  
+
+
+
+
+
 
 
 
