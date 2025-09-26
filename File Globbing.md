@@ -291,10 +291,48 @@ options. Other shells and configurations, instead, will cycle through the option
 This challenge has a /challenge/files directory with a bunch of files starting with pwncollege. Tab-complete from  
 /challenge/files/p or so, and make your way to the flag!  
 ### Solve  
-**Flag:** ``
+**Flag:** `pwn.college{UOoTDksZkCJcE2zNzpFno3noARy.0lN0EzNxwCN1kjNzEzW}`  
+I tab-completed witht the directory to give me options but I was stuck as no file would give me the file  
+but once I figured out I had to tab complete with the ``cat`` command, I got the correct file and hence the flag.  
 ```
+hacker@globbing~multiple-options-for-tab-completion:~$ /challenge/files/pwn
+pwn                    pwncollege-family      pwncollege-hacking
+pwn-college            pwncollege-flamingo    
+pwn-the-planet         pwncollege-flyswatter  
+hacker@globbing~multiple-options-for-tab-completion:~$ cat /challenge/files/pwn
+No flag in this file!
+hacker@globbing~multiple-options-for-tab-completion:~$ cat /challenge/files/pwn-college
+No flag in this file!
+hacker@globbing~multiple-options-for-tab-completion:~$ cat /challenge/files/pwn-the-planet
+No flag in this file!
+hacker@globbing~multiple-options-for-tab-completion:~$ cat /challenge/files/pwncollege-family
+No flag in this file!
+hacker@globbing~multiple-options-for-tab-completion:~$ cat /challenge/files/pwncollege-flamingo
+No flag in this file!
+hacker@globbing~multiple-options-for-tab-completion:~$ cat /challenge/files/pwncollege-flyswatter
+No flag in this file!
+hacker@globbing~multiple-options-for-tab-completion:~$ cat /challenge/files/pwncollege-hacking
+No flag in this file!
+hacker@globbing~multiple-options-for-tab-completion:~$ /challenge/files/pwn
+pwn                    pwn-college            pwn-the-planet         pwncollege-family      pwncollege-flamingo    pwncollege-flyswatter  pwncollege-hacking
+hacker@globbing~multiple-options-for-tab-completion:~$ /challenge/files/pwncollege-
+pwncollege-family      pwncollege-flamingo    pwncollege-flyswatter  pwncollege-hacking     
+hacker@globbing~multiple-options-for-tab-completion:~$ /challenge/files/pwncollege-f
+pwncollege-family      pwncollege-flamingo    pwncollege-flyswatter  
+hacker@globbing~multiple-options-for-tab-completion:~$ /challenge/files/pwncollege-fl
+pwncollege-flamingo    pwncollege-flyswatter  
+hacker@globbing~multiple-options-for-tab-completion:~$ cat /challenge/files/pwncollege-flamingo
+No flag in this file!
+hacker@globbing~multiple-options-for-tab-completion:~$ cat /challenge/files/pwncollege-flyswatter
+No flag in this file!
+hacker@globbing~multiple-options-for-tab-completion:~$ cat /challenge/files/pwncollege-
+pwncollege-family      pwncollege-flag        pwncollege-flamingo    pwncollege-flyswatter  pwncollege-hacking     
+hacker@globbing~multiple-options-for-tab-completion:~$ cat /challenge/files/pwncollege-flag
+pwn.college{UOoTDksZkCJcE2zNzpFno3noARy.0lN0EzNxwCN1kjNzEzW}
+
 ```
 ### New Learnings  
+I learnt how to tab-complete when there are multiple options.  
 ### Resources  
 ## Tab Completion on commands  
 Tab completion is for more than files! You can also tab-complete commands. This level has a command that  
