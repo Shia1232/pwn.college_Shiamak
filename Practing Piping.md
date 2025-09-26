@@ -649,8 +649,7 @@ HINT: The blocking behavior of FIFOs makes it hard to solve this challenge in a 
 the Desktop or VSCode mode for this challenge so that you can launch two terminals.  
 ### Solve  
 **Flag:** `pwn.college{c33Zp4T6Ec50sxSWWWNctIv4ziq.01MzMDOxwCN1kjNzEzW}`
-<img width="992" height="122" alt="image" src="https://github.com/user-attachments/assets/270bd6e7-6040-4ab1-a1ca-23b2bb9ef7a5" />
-<img width="1064" height="225" alt="image" src="https://github.com/user-attachments/assets/8b5e2a3d-068a-46c5-a044-6be0026cdaba" />
+<img width="1064" height="225" alt="image" src="https://github.com/user-attachments/assets/8b5e2a3d-068a-46c5-a044-6be0026cdaba" /> <img width="992" height="122" alt="image" src="https://github.com/user-attachments/assets/270bd6e7-6040-4ab1-a1ca-23b2bb9ef7a5" />
 
 ```
 hacker@piping~named-pipes:~$ /tmp/flag_fifo
