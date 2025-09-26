@@ -83,7 +83,7 @@ truncation mode (>), the second half will overwrite the first and you won't get 
 
 Go for it now!  
 ### Solve  
-**Flag:** `pwn.college{oCUTVzcg1fCHMtjp4hQoeG52PoS.QX3ATO0wCN1kjNzEzW}`
+**Flag:** `pwn.college{oCUTVzcg1fCHMtjp4hQoeG52PoS.QX3ATO0wCN1kjNzEzW}`  
 I used the redirecting of output mode to not overwrite the first part of the flag already present in /home/hacker/the-flag.  
 ```
 hacker@piping~appending-output:~$ /challenge/run >> /home/hacker/the-flag
@@ -134,4 +134,54 @@ already been using them, even though you didn't realize it. We're already famili
 + FD 1: Standard Output
 + FD 2: Standard Error
 When you redirect process communication, you do it by FD number, though some FD numbers are implicit. For example, a > without a number implies 1>, which redirects FD 1 (Standard Output). Thus, the following two commands are equivalent:
+```
+hacker@dojo:~$ echo hi > asdf
+hacker@dojo:~$ echo hi 1> asdf
+```
+Redirecting errors is pretty easy from this point. If you have a command that might produce data via standard error  
+(such as /challenge/run), you can do:  
+```
+hacker@dojo:~$ /challenge/run 2> errors.log
+```
+That will redirect standard error (FD 2) to the errors.log file. Furthermore, you can redirect multiple file descriptors  
+at the same time! For example:  
+```
+hacker@dojo:~$ some_command > output.log 2> errors.log
+```
+That command will redirect output to output.log and errors to errors.log.  
+
+Let's put this into practice! In this challenge, you will need to redirect the output of /challenge/run, like before, to  
+myflag, and the "errors" (in our case, the instructions) to instructions. You'll notice that nothing will be printed to    
+the terminal, because you have redirected everything! You can find the instructions/feedback in instructions and  
+the flag in myflag when you successfully pull this off!  
+### Solve 
+**Flag:** `pwn.college{0VZ19tGVYm7183KR6_Glan50ok_.QX3YTN0wCN1kjNzEzW}`  
+I redirected the errors to the instructions file and the flag(output) to the myflag file and then read myflag using ``cat`` to  
+retrieve the flag.  
+```
+hacker@piping~redirecting-errors:~$ /challenge/run > myflag 2> instructions
+hacker@piping~redirecting-errors:~$ cat myflag
+
+[FLAG] Here is your flag:
+[FLAG] pwn.college{0VZ19tGVYm7183KR6_Glan50ok_.QX3YTN0wCN1kjNzEzW}
+```
+### New Learnings  
+I learnt how to redirect errors using ``2>``.  
+### Resources  
+## Redirecting input  
+Just like you can redirect output from programs, you can redirect input to programs! This is done using <, as so:  
+```
+hacker@dojo:~$ echo yo > message
+hacker@dojo:~$ cat message
+yo
+hacker@dojo:~$ rev < message
+oy
+```
+You can do interesting things with a lot of different programs using input redirection! In this level, we will practice  
+using /challenge/run, which will require you to redirect the PWN file to it and have the PWN file contain the value  
+COLLEGE! To write that value to the PWN file, recall the prior challenge on output redirection from echo!  
+### Solve  
+**Flag:** ``
+
+
 
