@@ -209,7 +209,7 @@ file (e.g., grep). Let's put this together!
  I redirected the output of /challenge/run to /tmp/data.txt and then grepped using the search string pwn.college  
  to get the flag.  
  ```
-acker@piping~grepping-stored-results:~$ /challenge/run > /tmp/data.txt
+Hacker@piping~grepping-stored-results:~$ /challenge/run > /tmp/data.txt
 [INFO] WELCOME! This challenge makes the following asks of you:
 [INFO] - the challenge will check that output is redirected to a specific file path : /tmp/data.txt
 [INFO] - the challenge will output a reward file if all the tests pass : /challenge/.data.txt
