@@ -1,4 +1,4 @@
-# Perceiving Permissions
+Now, we are going to let you add the SUID bit to the /challenge/getroot program in order to spawn a root shell for you to cat the flag yourself!# Perceiving Permissions
 ## Changing File Ownership  
 First things first: file ownership. Every file in Linux is owned by a user on the system. Most often, in your day-  
 to-day life, that user is the user you log in as every day.  
@@ -1072,7 +1072,8 @@ do a task that only root/sudoers can do. Instead, the "Set User ID" (SUID) permi
 program as the owner of that program's file.    
 
 This is actually the exact mechanism used to let the challenge programs you run read the flag or, outside of  
-pwn.college, to enable system administration tools such as su, sudo, and so on. The permissions of a file with SUID  
+pwn.college, to enable system administration tools such as su,pwn.college{kl12SH_R2D3YYIvpl97EMCO9Smn.QXzEjN0wCN1kjNzEzW}
+ sudo, and so on. The permissions of a file with SUID  
 look like this:  
 ```
 hacker@dojo:~$ ls -l /usr/bin/sudo
@@ -1093,7 +1094,24 @@ become root. You will learn more about this in the Program Misuse module.
 Now, we are going to let you add the SUID bit to the /challenge/getroot program in order to spawn a root shell for  
 you to cat the flag yourself!  
 ### Solve  
-**Flag** ``
+**Flag** `pwn.college{kl12SH_R2D3YYIvpl97EMCO9Smn.QXzEjN0wCN1kjNzEzW}`  
+I used suid to give /challenge/getroot s and r permissions and become root and then just read flag.  
+```
+hacker@permissions~the-suid-bit:~$ chmod u+s /challenge/getroot
+hacker@permissions~the-suid-bit:~$ cat /flag
+cat: /flag: Permission denied
+hacker@permissions~the-suid-bit:~$ ls -l /challenge/getroot
+-rwsr-xr-x 1 root root 155 Jan 14  2025 /challenge/getroot
+hacker@permissions~the-suid-bit:~$ chmod u+sx /challenge/getroot
+hacker@permissions~the-suid-bit:~$ /challenge/getroot
+SUCCESS! You have set the suid bit on this program, and it is running as root! 
+Here is your shell...
+root@permissions~the-suid-bit:~# cat /flag
+pwn.college{kl12SH_R2D3YYIvpl97EMCO9Smn.QXzEjN0wCN1kjNzEzW}
+```
+### New Learnings  
+I learnt the usage of the ``SUID`` command. 
+### Resources  
 
 
 
