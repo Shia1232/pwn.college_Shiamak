@@ -679,7 +679,17 @@ pwn.college{YJMN2zj2I8gghCKVDxWT__DxpY2.QXwEjN0wCN1kjNzEzW}
 ```
 ### New Learnings  
 ### Resources  
-## 
+## Permissions Setting Practice  
+In addition to adding and removing permissions, as in the previous level, chmod can also simply set permissions  
+altogether, overwriting the old ones. This is done by using = instead of - or +. For example:  
++ u=rw sets read and write permissions for the user, and wipes the execute permission
++ o=x sets only executable permissions for the world, wiping read and write
++ a=rwx sets read, write, and executable permissions for the user, group, and world!
+
+But what if you want to change user permissions in a different way as group permissions? Say, you want to set rw  
+for the owning user, but only r for the owning group? You can achieve this by chaining multiple modes to chmod  
+with ,!  
++ 
 
 
 
