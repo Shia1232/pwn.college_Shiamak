@@ -19,6 +19,7 @@ NOTE: When you're done with your command line, type exit or press Ctrl-D to leav
 screen will terminate and return you to your original shell.  
 ### Solve  
 **Flag:** `pwn.college{sICufbpwJvvq34yOKAzCqZwbMuT.0VN4IDOxwCN1kjNzEzW}`
+I launched a screen to get the flag.
 ```
 Congratulations! You're inside a screen session!
 Here's your flag:
@@ -63,6 +64,7 @@ HINT: Remember: Hold Ctrl and press A, then release both and press d.
 HINT: If you see [detached from...], you did it right!  
 ### Solve  
 **Flag:** `pwn.college{gAh7P-0Jk4OSmVjW8ed-wPPfF91.0lN4IDOxwCN1kjNzEzW}`  
+I launched a screen then detached and ran /challenge/run which sent the flag to the detached screen where I reattached to get the flag.
 ```
 acker@terminal-multiplexing~detaching-and-attaching:~$ screen bash
 [detached from 162.pts-0.terminal-multiplexing~detaching-and-attaching]
@@ -123,6 +125,7 @@ are decoys!
 You'll need to check each one until you find it. Don't forget to detach (Ctrl-A d) before trying the next session!
 ### Solve
 **Flag:** `pwn.college{ci1GLlU8ZUxJBF5-b21ez2JXVGu.01N4IDOxwCN1kjNzEzW}`  
+I launched the detached screen and eventually found the one with the flag.
 ```
 hacker@terminal-multiplexing~finding-sessions:~$ screen bash
 [detached from 203.pts-3.terminal-multiplexing~finding-sessions]
@@ -170,6 +173,7 @@ Attach to the session with screen -r, then use one of the key combinations above
 that flag!  
 ### Solve
 **Flag:** `pwn.college{M7Yz0HuWaq9T_XEBHAzqiJixUYg.0FO4IDOxwCN1kjNzEzW}`  
+I launched the detached session, went to it's window 0 to get the flag.  
 ```
 
 
@@ -247,6 +251,7 @@ For this challenge:
 4. Reattach to see your prize
 ### Solve  
 **Flag:** `pwn.college{k_ZluU6npIkedGJrPYC5Ux56Wj8.0VO4IDOxwCN1kjNzEzW}`  
+I launched a screen then detached and ran /challenge/run which sent the flag to the detached screen where I reattached to get the flag.
 ```
 hacker@terminal-multiplexing~detaching-and-attaching-tmux:~$ tmux
 [detached (from session 0)]
@@ -290,6 +295,7 @@ We've created a tmux session with two windows:
 Go get that flag!
 ### Solve
 **Flag:** `pwn.college{gm7haL86KKC5Ilh3DUmBZGOMesB.0FM5IDOxwCN1kjNzEzW}`
+I launched the detached session, went to it's window 0 to get the flag.  
 ```
 hacker@terminal-multiplexing~switching-windows-tmux:~$ tmux -ls
 tmux: unknown option -- s
