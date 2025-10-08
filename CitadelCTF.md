@@ -104,4 +104,44 @@ numbering, we decoded the combined string using the From Base64 operation in Cyb
 
 Flag: ```bash citadel{w3_4r3_up_4ll_n1t3_t0_g1t_lucky} ```  
 
+## Selected Ambient Work  
+The symphonic adventure does not end here. On the next floor, a single song keeps echoing through the  
+floor, repeating in a haunting loop. Amid the sound, you find a note left by a past candidate. It hints  
+that the song holds a secret message, hidden in plain sight, much like how Aphex Twin concealed his  
+face within his music with the help of spectrograms.  
+
+To move forward, you must find the message hidden in this sound.  
+
+Note: Separate the words in the flag with _ and make it UPPERCASE. Example:   
+citadel{S3L3CT3D_AMB13NT_W0RK}  
+### Solve
+**Flag:** `citadel{1_LOV3_1DM`
+I was stuck on this for a while as I figured out it was morse but it also had beats  
+along it. Upon re-examining the spectrogram after numerous times, we saw the text of citadel { with morse in between  
+which gave us the hint. I noted the morse in between the brackets to solve it.  
+## The Robot's Trail  
+You enter a virtual maze, a labyrinth of shifting corridors and endless paths. A guardian robot patrols  
+the floor, leaving a trail behind as it moves. Follow the path it carves, trace its movements  
+carefully, and uncover the key it leads you to. Only by following the robot’s trail can you reach the  
+door to the next floor.   
+
+Challenge: https://therobotstrail.citadel.cryptonitemit.in  
+### Solve 
+**Flag:** `citadel{p4th_tr4v3rs4l_m4st3ry_4ch13v3d}`
+Seeing the challenge, I immediately knew it was a traversal challenge.  
+By first inspecting the page(`<div class="hidden">
+        <p>Start by checking what this site tells search engine bots in <a href="/robots.txt" style="color: #00bcd4;">robots.txt</a></p>`) and then just following the clues, I got the flag.
+## Rotting In The Deep
+The floor is quiet, almost unnervingly so – like the Citadel has paused to take your measure. A soft  
+ring of presence settles around the chamber, the kind that marks a true landing: from here, it will ask  
+for more and, in return, grant more. Etched into its surface is a sequence of numbers, worn and faint,  
+as if time itself is eating them away. A whisper from the echoes guides you:  
+
+The message lies beneath the surface. Push it three steps forward in the cycle of life, and only then  
+will the words emerge from the void.  
+### Solve
+**Flag:** `citadel{br0_r34lly_unr0tt3d_m3_b4ck_t0_l1f3}`
+By seeing the python script, I understood we have to use +3 and use something to get 6895840967002953721051398351211751734500850509315790892845302801984496338433523326225010635779036738800318 as the  
+output. Thus by applying a shift of -3 and then converting the long into bytes, we got the flag.  
+
 
