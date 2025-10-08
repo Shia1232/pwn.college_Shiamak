@@ -784,6 +784,17 @@ Upon connecting, most commands are blocked. Attempts to use common commands like
 Closer inspection reveals that the environment variable FLAG likely contains the flag, but needs to be accessed in a permitted way. The interpreter whitelist is found to allow several words—PRINT, ENVIRON, FLAG, lower, and exec—but only if matched case-sensitively.
 
 Using these, a crafted input like execPRINTENVIRON.lower FLAG is accepted. This executes a print of the lowercased environment, from which the flag can be easily extracted.  
+## Viral Bionic Anomaly  
+This floor is haunted by a phantom of the past. You encounter a presentation created by the last  
+employee of a forgotten corporation, made just minutes before the Citadel awoke.  
+
+Rumor has it that the corporation predicted the rise of the Citadel. Within the slides, a "starter  
+pack" holds the clues you need. Use it to confront the "final boss", a threat trapped inside a macro  
+hidden deep within the presentation, and claim the key to the next floor.  
+### Solve
+**Flag:** ``
+
+
 ## Field day
 
 
