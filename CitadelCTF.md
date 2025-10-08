@@ -732,7 +732,27 @@ extract the hidden passcode.
 
 Challenge: https://databaseincursion.citadel.cryptonitemit.in  
 ### Solve  
-**Flag:** ``
+**Flag:** `citadel{wh3n_w1ll_y0u_f1nd_0u7_1f_175_5ql_0r_53qu3l?}`
+I started on a simple login page with username and password fields that was clearly vulnerable to SQL injection. The underlying query looked like the usual pattern:  
+  
+select * from users where username = '$username' and password = '$password';  
+  
+So I injected a payload that makes the WHERE clause always true:   
+`' or 1=1;--`  
+That bypassed authentication and let me in.  
+  
+Inside, there’s a searchable employee list that shows only four results at a time and an extra field for the admin password. One of the  
+employee notes hinted that someone in management had the admin password, so I crafted a query to pull management records:  
+  
+`' or department='Management'--`  
+
+That returned a management note telling me the admin password belonged to an employee named “Kiwi.” A search for the name “Kiwi” returned four results, none in Management. To target the   specific management Kiwi I combined the conditions:  
+  
+`' or (department='Management' and name='Kiwi')--`  
+
+This returned the exact employee entry I needed and revealed the admin password — which in turn gave me the flag.  
+
+
 
 
 
@@ -746,7 +766,9 @@ Near the gate to the next floor you come across a CAPTCHA verification test, but
 scratches on the decaying wall and misleading letters stopping you from finding the correct key, all to  
 prove you’re human.  
 ### Solve
-**Flag:** ``
+**Flag:** `citadel{1m_3v3rywh3r3_1m_s0_jul1a}`
+We converted every 286 possibility into a python script and found the flag. 
+[pastebin](https://pastebin.com/sqxnxBhZ)
 
 ## A Memory's a Heavy Burden
 
