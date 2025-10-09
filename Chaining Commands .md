@@ -64,6 +64,7 @@ operator. Try running each command separately first to see what happens (which i
 But if you chain them with &&, the flag will appear!  
 ### Solve  
 **Flag:** `pwn.college{QWofvIUTAEKSPqkHEWr5EJYxD-e.0lM0MDOxwCN1kjNzEzW}`  
+I used the && operator to run the two commands at the same time. 
 ```
 hacker@chaining~building-on-success:~$ /challenge/first-success 
 hacker@chaining~building-on-success:~$ /challenge/second
