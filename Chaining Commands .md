@@ -183,6 +183,7 @@ that calls the /challenge/pwn command followed by the /challenge/college command
 script into a single invocation of the /challenge/solve command!  
 ### Solve  
 **Flag:** `pwn.college{4TKGvK05x1ySDMuYubK8_FzK8M1.QX4ETO0wCN1kjNzEzW}`  
+I redirected the shell script's output to /challenge/solve by piping it.
 ```
 hacker@chaining~redirecting-script-output:~$ echo '/challenge/pwn' > x.sh
 hacker@chaining~redirecting-script-output:~$ echo '/challenge/college' >> x.sh
@@ -270,6 +271,7 @@ FUN FACT: Common shebangs you might see:
    compatibility to non-Linux systems!
   ### Solve
   **Flag:** `Flag: pwn.college{QtC7JReN2_OWoJPgmHDXFPG0DOU.0VOzMDOxwCN1kjNzEzW}`
+  I used a shebang to specify the interpreter 
   ```
   hacker@chaining~understanding-shebangs:~$ echo '#!/bin/bash' > /home/hacker/solve.sh
   hacker@chaining~understanding-shebangs:~$ echo 'echo "hack the planet"' >> /home/hacker/solve.sh
@@ -316,6 +318,7 @@ hacker@dojo:~$
 Once your script works correctly, run /challenge/run to get your flag!
 ### Solve 
 **Flag:** `pwn.college{EQ122xGrLKM3tx0rqaQXi23kBX4.0VNzMDOxwCN1kjNzEzW}`
+I used arguments in my shell script and reversed them.
 ```
 hacker@chaining~scripting-with-arguments:~$ echo '#!/bin/bash' > /home/hacker/solve.sh
 hacker@chaining~scripting-with-arguments:~$ echo 'echo "$2 $1"' >> /home/hacker/solve.sh
@@ -361,6 +364,8 @@ NOTE: Interested in what else you can check in a condition, other than string eq
 test!  
 ### Solve 
 **Flag:** `pwn.college{Iu-bzsPAkQDP2xJ9NBf9e2kxCAa.0lNzMDOxwCN1kjNzEzW}`
+I implemented a condition in my shell script which made it so that certain actions only occur  
+on fulfilling some criteria
 ```
 hacker@chaining~scripting-with-conditionals:~$ echo '#!/bin/bash' > /home/hacker/solve.sh
 echo 'if [ "$1" = "pwn" ]; then' >> /home/hacker/solve.sh
@@ -420,6 +425,8 @@ hacker@dojo:~$
 Once your script works correctly, run /challenge/run to get your flag!  
 ### Solve  
 **Flag:** `pwn.college{Q4032ZD7bBpwmv8jk4q6YJZsgIy.01NzMDOxwCN1kjNzEzW}`  
+I used the else as a default script here to handle all the conditions
+
 ```
 hacker@chaining~scripting-with-default-cases:~$ cat > /home/hacker/solve.sh <<'EOF'
 #!/bin/bash
@@ -488,6 +495,7 @@ languages, bash requires the [ and the ] to be separated from other characters b
 parse the condition.  
 ### Solve
 **Flag:** `pwn.college{Yz0Fvk98obK7JrllaUjzxvRPnMK.0FOzMDOxwCN1kjNzEzW}`  
+I used the elif conditional here to fulfill all conditions.  
 ```
  cat > /home/hacker/solve.sh << 'EOF'                                                                                              #!/bin/bash                             
 
