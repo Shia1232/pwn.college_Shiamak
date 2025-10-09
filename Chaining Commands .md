@@ -139,12 +139,14 @@ You can see that the shell script executed both commands, creating and printing 
 
 Now, it's your turn! Same as last level, run /challenge/pwn and then /challenge/college, but this time in a shell  
 script called x.sh, then run it with bash!  
+
 -------------------------------------------------------------------------------------------------------------------------------  
 NOTE: We haven't yet talked about Linux's amazing array of competent command line file editors. For now, feel free  
 to use the Text Editor application in Desktop mode (Applications->Accessories->Text Editor) or the default  
 editor in the VSCode Workspace!  
 ### Solve
 **Flag:** `pwn.college{o5TAEtlZFYdNKf6CjPoofZtLaEe.QXxcDO0wCN1kjNzEzW}`
+I wrote the commands /challenge/pwn and /challenge/college onto the shell script x.sh and then ran it using ``bash`` command to get the flag.  
 ```
 hacker@chaining~your-first-shell-script:~$ echo '/challenge/pwn' > x.sh
 hacker@chaining~your-first-shell-script:~$ echo '/challenge/college' >> x.sh
