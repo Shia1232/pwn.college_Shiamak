@@ -167,7 +167,8 @@ it will not print anything out for you.
 How can you solve this? You know that rm is searched for in the directories listed in the PATH variable. You have  
 experience creating the win command when the previous challenge needed it. What else can you create?  
 ### Solve
-**Flag:** `pwn.college{4Vy2A19DJkY4OesKU5rw48T6nBF.QX3cjM1wCN1kjNzEzW}`
+**Flag:** `pwn.college{4Vy2A19DJkY4OesKU5rw48T6nBF.QX3cjM1wCN1kjNzEzW}`  
+I created a fake /tmp/fakebin/rm, prepended it to PATH, and ran the challenge so the fake rm printed the flag and then delegated to /bin/rm, which deleted the file.  
 ```
 hacker@path~hijacking-commands:~$ mkdir -p /tmp/fakebin
 hacker@path~hijacking-commands:~$ 
